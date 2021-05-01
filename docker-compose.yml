@@ -1,33 +1,33 @@
-version: '3.2'
+version: '3.7'
 
 services:
   mysql:
     image: mysql
     environment:
-    - MYSQL_ROOT_PASSWORD=admin
-    - MYSQL_DATABASE=admin
-    - MYSQL_USER=admin
-    - MYSQL_PASSWORD=admin
-    - MYSQL_ROOT_HOST=%
+     - MYSQL_ROOT_PASSWORD=admin
+     - MYSQL_DATABASE=mercapi_macapa
+     - MYSQL_USER=admin
+     - MYSQL_PASSWORD=admin
+     - MYSQL_ROOT_HOST=%
     ports:
-      - "3306:3306"
+     - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
 
   postgresql:
     image: postgres
-    restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+     - POSTGRES_DB=postgres
+     - POSTGRES_USER=mercapi_varejao
+     - POSTGRES_PASSWORD=mercapi_varejao
     ports:
-      - "5432:5432"
+     - "5432:5432"
 
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbitmq
     hostname: rabbitmq
     ports:
-      - "8081:15672"
+     - "8081:15672"
     network_mode: "bridge"
     volumes:
      - $PWD/storage/rabbitmq:/var/lib/rabbitmq
