@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 services:
   mysql:
@@ -15,8 +15,23 @@ services:
 
   postgresql:
     image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     ports:
       - "5432:5432"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "8081:15672"
+    network_mode: "bridge"
+    volumes:
+     - $PWD/storage/rabbitmq:/var/lib/rabbitmq
     environment:
-      POSTGRES_PASSWORD: "admin"
-      POSTGRES_USER: "admin"
+     - RABBITMQ_ERLANG_COOKIE=mercamerca
+     - RABBITMQ_DEFAULT_USER=guest
+     - RABBITMQ_DEFAULT_PASS=guest
