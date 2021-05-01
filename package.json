@@ -7,7 +7,7 @@
   "author": "Charles Jamil",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn source/server.ts"
+    "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn source/server.ts"
   },
   "private": false,
   "dependencies": {
