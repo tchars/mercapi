@@ -33,6 +33,10 @@ Responsabilidades:
 - Consumer: Processa dados e salva no banco;
 
 # Como rodar: 
-- Faça login
+- Rode o docker-compose
+- No terminal, na pasta raiz: yarn producer, depois: yarn consumer
+- Faça login (use a collection exportada)
+	- macapa / 123
+	- varejao / 123
 - Use o token
 - Faça as requisições respectivas
