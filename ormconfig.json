@@ -1,0 +1,36 @@
+[
+	{
+		"name": "mysql",
+		"type": "mysql",
+		"host": "localhost",
+		"port": 3306,
+		"username": "admin",
+		"password": "admin",
+		"database": "mercapi_macapa",
+		"synchronize": true,
+		"logging": false,
+		"entities": [
+			"source/MercAPI.Domain/Models/**/*.ts"
+		],
+		"migrations": [
+			"source/MercAPI.Infra/Migrations/MySQL/**/*.ts"
+		]
+	},
+	{
+		"name": "postgres",
+		"type": "postgres",
+		"host": "localhost",
+		"port": 5432,
+		"username": "mercapi_varejao",
+		"password": "mercapi_varejao",
+		"database": "postgres",
+		"synchronize": true,
+		"logging": false,
+		"entities": [
+			"source/MercAPI.Domain/Models/**/*.ts"
+		],
+		"migrations": [
+			"source/MercAPI.Infra/Migrations/Postgre/**/*.ts"
+		]
+	}
+]

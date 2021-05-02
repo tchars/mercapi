@@ -22,3 +22,17 @@ Especificações do Cliente VareJão:
 - O formato de telefone segue o padrão 554130306905
 
 A criação de um ambiente de testes usando Docker para simular o banco de dados do cliente é altamente recomendada. A solução poderá ser desenvolvida em Golang ou Node.js. Fique livre para desenhar a solução da maneira que achar mais conveniente e supor qualquer cenário que não foi abordado nas especificações acima.
+
+# Solução proposta
+A solução proposta consiste em dois serviços (Producer e Consumer):
+- Consumer: Responsável por consumir as mensagens da fila que é populada pelo Producer;
+- Producer: Responsável por popular fila de mensagens que será processada pelo Consumer;
+
+Responsabilidades:
+- Producer: Apenas recebe a requisição e enfileira;
+- Consumer: Processa dados e salva no banco;
+
+# Como rodar: 
+- Faça login
+- Use o token
+- Faça as requisições respectivas

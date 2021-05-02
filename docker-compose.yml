@@ -28,6 +28,7 @@ services:
     hostname: rabbitmq
     ports:
      - "8081:15672"
+     - "5672:5672"
     network_mode: "bridge"
     volumes:
      - $PWD/storage/rabbitmq:/var/lib/rabbitmq
