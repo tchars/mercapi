@@ -7,13 +7,6 @@ import { verifyToken } from '../../../../../MercAPI.Infra/Middlewares/VerifyJWT'
 const contactsRoutes = Router();
 const rabbitMQBroker = new RabbitMQBroker(process.env.RABBITMQ_URL);
 
-// contactsRoutes.use(verifyToken);
-
-contactsRoutes.get('/', (_request, response) => {
-	// contactsRepository.create({ name, cellphone });
-	return response.status(201).send([]);
-});
-
 contactsRoutes.post('/', verifyToken, async (request, response) => {
 	const { contacts } = request.body;
 	const { businessCodeToken } = request;

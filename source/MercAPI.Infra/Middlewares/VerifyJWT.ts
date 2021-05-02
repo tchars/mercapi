@@ -18,13 +18,12 @@ export async function verifyToken(
 
 	const [, token] = authHeader.split(' ');
 
-	verify(token, process.env.SECRET);
-
 	try {
 		const { id } = verify(token, process.env.SECRET) as IPayload;
 		request.businessCodeToken = id;
 		next();
 	} catch (error) {
 		throw new Error('Invalid token');
+		next();
 	}
 }

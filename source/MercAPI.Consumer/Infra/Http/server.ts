@@ -20,14 +20,13 @@ createConnections().then(async () => {
 		const { businessCodeToken, contact } = parsedContactFromQueue;
 		const { name, cellphone } = contact;
 
-		const saveToDabase = {
-			'1': await HandleData.saveMySQL({ name, cellphone }),
-			'2': await HandleData.savePostgres({ name, cellphone }),
-		};
+		if (businessCodeToken === 1) {
+			console.log('New contact Macapa added!');
+			return HandleData.saveMySQL({ name, cellphone });
+		}
 
-		await saveToDabase[businessCodeToken];
-
-		console.log('New contact added!');
+		console.log('New contact Varejao added!');
+		return HandleData.savePostgres({ name, cellphone });
 	});
 
 	app.get('/', (_req, res) => {
